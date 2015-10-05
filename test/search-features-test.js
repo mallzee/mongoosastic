@@ -156,4 +156,22 @@ describe('Query DSL', function() {
 
   });
 
+  describe('Query', function() {
+
+    it('should do a query', function(done) {
+
+      Bond.query({
+        query: {
+          match_all: {}
+        }
+      }, function(err, res) {
+
+          res.hits.total.should.eql(4);
+        done();
+      });
+
+    });
+
+  });
+
 });
